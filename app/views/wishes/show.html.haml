@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  %b Title:
+  = @wish.title
+%p
+  %b Description:
+  = @wish.description
+%p
+  %b Priority:
+  = @wish.priority
+%p
+  %b Arrival:
+  = @wish.arrival
+%p
+  %b Status:
+  = @wish.status_id
+%p
+  %b Category:
+  = @wish.category_id
+%p
+  %b User:
+  = @wish.user_id
+= link_to 'Edit', edit_wish_path(@wish)
+|
+\#{link_to 'Back', wishes_path}
