@@ -8,6 +8,7 @@ class CreateWishes < ActiveRecord::Migration
       t.integer :status_id
       t.integer :category_id
       t.integer :user_id
+      t.integer :device_id
 
       t.timestamps
     end
