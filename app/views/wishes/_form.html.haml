@@ -26,14 +26,14 @@
   .field
     = f.label :status_id
     %br/
-    = f.number_field :status_id
+    = f.collection_select :status_id, @statuses, :id, :description, :prompt => true
   .field
     = f.label :category_id
     %br/
-    = f.number_field :category_id
+    = f.collection_select :category_id, @categories, :id, :description, :prompt => true
   .field
-    = f.label :user_id
+    = f.label :device_id
     %br/
-    = f.number_field :user_id
+    = f.collection_select :device_id, @devices, :id, :description, :prompt => true
   .actions
     = f.submit

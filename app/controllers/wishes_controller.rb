@@ -24,6 +24,7 @@ class WishesController < ApplicationController
   # GET /wishes/new
   # GET /wishes/new.json
   def new
+    load_common_selects
     @wish = Wish.new
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class WishesController < ApplicationController
 
   # GET /wishes/1/edit
   def edit
+    load_common_selects
     @wish = Wish.find(params[:id])
   end
 
@@ -80,4 +82,13 @@ class WishesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def load_common_selects
+    @devices = Device.all
+    @statuses = Status.all
+    @categories = Category.simplified
+  end
+  
 end
