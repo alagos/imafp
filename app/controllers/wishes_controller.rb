@@ -46,9 +46,10 @@ class WishesController < ApplicationController
 
     respond_to do |format|
       if @wish.save
-        format.html { redirect_to @wish, notice: 'Wish was successfully created.' }
+        format.html { redirect_to wishes_url, notice: 'Wish was successfully created.' }
         format.json { render json: @wish, status: :created, location: @wish }
       else
+        load_common_selects
         format.html { render action: "new" }
         format.json { render json: @wish.errors, status: :unprocessable_entity }
       end
@@ -62,9 +63,10 @@ class WishesController < ApplicationController
 
     respond_to do |format|
       if @wish.update_attributes(params[:wish])
-        format.html { redirect_to @wish, notice: 'Wish was successfully updated.' }
+        format.html { redirect_to wishes_url, notice: 'Wish was successfully updated.' }
         format.json { head :no_content }
       else
+        load_common_selects
         format.html { render action: "edit" }
         format.json { render json: @wish.errors, status: :unprocessable_entity }
       end
